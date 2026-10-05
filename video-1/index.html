@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Автовыдача на FunPay без сервера: гайд по шагам | Varga AI</title>
+<meta name="description" content="Письменная инструкция к видео: как настроить автовыдачу на FunPay без своего сервера. Поставщик, подключение лота, тестовый заказ, Telegram.">
+<link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="3"/><path d="M3 10h18M16 15h2"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol>
+  <symbol id="i-redo" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-3-6.2M20 4v5h-5"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24"><path d="M9 11V5a1.5 1.5 0 0 1 3 0v6M12 10V4a1.5 1.5 0 0 1 3 0v7M15 11V6a1.5 1.5 0 0 1 3 0v9a6 6 0 0 1-6 6h-1a6 6 0 0 1-5-3l-2-4a1.5 1.5 0 0 1 2.5-1.5L9 15"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.5"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></symbol>
+  <symbol id="i-server" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4zM3 7v10l9 4 9-4V7M12 11v10"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+  <symbol id="i-chan" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="4"/><path d="M10 9.5v5l4.5-2.5z"/></symbol>
+  <symbol id="i-git" viewBox="0 0 24 24"><path d="M8 4v10a4 4 0 0 0 4 4h4M8 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM16 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></symbol>
+</svg>
+
+<div class="progress" aria-hidden="true"></div>
+
+<header class="nav-shell">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="../assets/img/logo.svg" alt=""><span class="brand-text"><b>shellboy</b><small>hub</small></span></a>
+    <nav class="navpill">
+      <a href="#need">Что нужно</a>
+      <a href="#steps">Шаги</a>
+      <a href="#fail">Если не прошло</a>
+      <a href="#fit">Что подходит</a>
+      <a href="#links">Ссылки</a>
+    </nav>
+    <a class="btn blue sm nav-cta" href="https://vargaai.ru/?src=youtube_autovydacha" target="_blank" rel="noopener">Начать бесплатно</a>
+  </div>
+</header>
+
+<main id="top">
+
+<div class="hero">
+  <i class="orb o1" aria-hidden="true"></i><i class="orb o2" aria-hidden="true"></i>
+  <div class="wrap">
+    <div class="pills rise" style="--d:0ms">
+      <span class="pill"><span class="dot"></span>shellboy hub</span>
+      <span class="pill"><b>Видео</b>Материалы и гайд</span>
+    </div>
+    <h1>Автовыдача на FunPay <span class="grad">за 4 шага</span></h1>
+    <p class="lead rise" style="--d:520ms">Покупатель оплатил, Varga купила код у твоего поставщика и отправила его в чат заказа. Все шаги текстом: подключение, поставщик, лот, тестовый заказ.</p>
+    <div class="hero-actions rise" style="--d:660ms">
+      <a class="btn dark" href="https://www.youtube.com/@shellboyxx" target="_blank" rel="noopener" id="video-link"><svg class="icon"><use href="#i-play"/></svg>Смотреть видео</a>
+      <a class="btn blue" href="https://vargaai.ru/?src=youtube_autovydacha" target="_blank" rel="noopener">Начать 7 дней бесплатно</a>
+    </div>
+    <p class="hero-note rise" style="--d:780ms">Без карты. Отсчёт начнётся, когда подключишь первую площадку.</p>
+
+    <div class="stage">
+      <div class="stage-tilt"><div class="window">
+        <div class="win-bar"><i></i><i></i><i></i><span>Выдачи</span></div>
+        <div class="win-body">
+          <div class="feed-row"><span class="t">03:12</span><div><b>Новый заказ, FunPay</b><small>Steam 500 ₽, оплачен</small></div><span class="chip">Оплачен</span></div>
+          <div class="feed-row"><span class="t">03:12</span><div><b>Куплено у поставщика</b><small>списано с баланса поставщика</small></div><span class="chip warn">Закупка</span></div>
+          <div class="feed-row"><span class="t">03:13</span><div><b>Код выдан в чат</b><small>покупатель получил товар</small></div><span class="chip ok">Выдано</span></div>
+        </div>
+        <p class="win-cap">Пример ленты выдачи. Ты в это время спишь.</p>
+      </div></div>
+      <div class="float a"><span class="ic"><svg class="icon"><use href="#i-check"/></svg></span><span><b>Код выдан</b>FunPay, только что</span></div>
+      <div class="float b"><span class="ic" style="background:var(--blue-soft);color:var(--blue)"><svg class="icon"><use href="#i-bolt"/></svg></span><span><b>4 шага</b>до первой выдачи</span></div>
+    </div>
+    <div class="strip">
+      <p>В гайде</p>
+      <div class="strip-row">
+        <span class="strip-item"><span class="logo-img" data-letter="F"><img class="logo" src="https://www.google.com/s2/favicons?domain=funpay.com&sz=128" alt="" loading="lazy"></span>FunPay</span>
+        <span class="strip-item"><span class="logo-img" data-letter="F"><img class="logo" src="https://www.google.com/s2/favicons?domain=fazercards.com&sz=128" alt="" loading="lazy"></span>FazerCards</span>
+        <span class="strip-item"><span class="logo-img" data-letter="G"><img class="logo" src="https://www.google.com/s2/favicons?domain=g2a.com&sz=128" alt="" loading="lazy"></span>G2A</span>
+        <span class="strip-item"><span class="logo-img" data-letter="W"><img class="logo" src="https://www.google.com/s2/favicons?domain=wupex.com&sz=128" alt="" loading="lazy"></span>Wupex</span>
+        <span class="strip-item"><span class="logo-img" data-letter="FR"><img class="logo" src="https://www.google.com/s2/favicons?domain=foxreload.com&sz=128" alt="" loading="lazy"></span>FoxReload</span>
+        <span class="strip-item"><span class="logo-img" data-letter="V"><img class="logo" src="https://vargaai.ru/img/va-logo.png" alt="" loading="lazy"></span>Varga AI</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="need">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">Подготовка</span>
+      <h2>Что нужно заранее</h2>
+      <p class="sec-sub">Автовыдача доступна в тарифах «Про» и «Бизнес». В триале открыто всё, как в «Бизнесе».</p>
+    </div>
+    <div class="grid g3 reveal">
+      <div class="card"><div class="ico"><svg class="icon"><use href="#i-user"/></svg></div><h4>Аккаунт FunPay</h4><p>С лотом, который хочешь автоматизировать.</p></div>
+      <div class="card"><div class="ico"><svg class="icon"><use href="#i-key"/></svg></div><h4>Аккаунт у поставщика</h4><p>И его API-ключ. Список поставщиков ниже.</p></div>
+      <div class="card"><div class="ico"><svg class="icon"><use href="#i-wallet"/></svg></div><h4>Деньги у поставщика</h4><p>Код покупается с его баланса, пополняешь сам.</p></div>
+    </div>
+
+    <div class="sec-head reveal" style="margin-top:64px">
+      <span class="label">Откуда брать коды</span>
+      <h2>Поставщики</h2>
+    </div>
+    <div class="grid g4 reveal">
+      <a class="card sup" href="https://reseller.fazercards.com/ru" target="_blank" rel="noopener">
+        <div class="sup-top"><span class="logo-img" data-letter="F"><img class="logo" src="https://www.google.com/s2/favicons?domain=fazercards.com&sz=128" alt="" loading="lazy"></span><span class="tag ok">Работает</span></div>
+        <div class="sup-body"><h4>FazerCards</h4><p>Гифт-карты, ключи игр, пополнения, Steam, Telegram Stars и Premium.</p><div class="go">Открыть<svg class="icon" style="width:16px;height:16px"><use href="#i-arrow"/></svg></div></div>
+      </a>
+      <a class="card sup" href="https://www.g2a.com/" target="_blank" rel="noopener">
+        <div class="sup-top"><span class="logo-img" data-letter="G"><img class="logo" src="https://www.google.com/s2/favicons?domain=g2a.com&sz=128" alt="" loading="lazy"></span><span class="tag beta">Бета</span></div>
+        <div class="sup-body"><h4>G2A</h4><p>Ключи игр и гифт-карты, закупка в EUR. Баланс через API не отдаётся, смотри его у поставщика.</p><div class="go">Открыть<svg class="icon" style="width:16px;height:16px"><use href="#i-arrow"/></svg></div></div>
+      </a>
+      <a class="card sup" href="https://wupex.com/" target="_blank" rel="noopener">
+        <div class="sup-top"><span class="logo-img" data-letter="W"><img class="logo" src="https://www.google.com/s2/favicons?domain=wupex.com&sz=128" alt="" loading="lazy"></span><span class="tag beta">Бета</span></div>
+        <div class="sup-body"><h4>Wupex</h4><p>Подарочные карты 72+ стран: Apple, Google Play, Steam и другие.</p><div class="go">Открыть<svg class="icon" style="width:16px;height:16px"><use href="#i-arrow"/></svg></div></div>
+      </a>
+      <a class="card sup" href="https://foxreload.com/ru" target="_blank" rel="noopener">
+        <div class="sup-top"><span class="logo-img" data-letter="FR"><img class="logo" src="https://www.google.com/s2/favicons?domain=foxreload.com&sz=128" alt="" loading="lazy"></span><span class="tag beta">Бета</span></div>
+        <div class="sup-body"><h4>FoxReload</h4><p>Гифт-карты, пополнения игр, подписки, Telegram Stars и Premium.</p><div class="go">Открыть<svg class="icon" style="width:16px;height:16px"><use href="#i-arrow"/></svg></div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="steps" class="tint">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">Инструкция</span>
+      <h2>Четыре шага по порядку</h2>
+      <p class="sec-sub">Пути в интерфейсе копируются кнопкой. Схемы справа показывают, что искать на экране, это не скриншоты.</p>
+    </div>
+
+    <div class="steps">
+
+      <div class="step reveal">
+        <div>
+          <div class="step-num">01</div>
+          <h3>Подключи FunPay</h3>
+          <div class="copybar"><span><em>Путь</em>Настройки → Площадки</span><button class="copy" data-copy="Настройки → Площадки">Скопировать</button></div>
+          <ol>
+            <li>Добавь FunPay.</li>
+            <li>Вставь Golden key из браузера. В приложении есть подсказка, как его взять.</li>
+            <li>Дождись первой синхронизации: лоты и история заказов подтянутся в кабинет.</li>
+          </ol>
+          <div class="callout warn"><svg class="icon"><use href="#i-alert"/></svg><p>Не показывай ключ никому.</p></div>
+        </div>
+        <div class="step-ui">
+          <div class="ui-panel">
+            <div class="ui-title">FunPay<span class="chip ok">Подключено</span></div>
+            <div class="field">Golden key<div class="input"><span class="typing">••••••••••••••••</span></div></div>
+            <span class="ui-btn">Подключить</span>
+          </div>
+          <p class="ui-cap">Схема интерфейса</p>
+        </div>
+      </div>
+
+      <div class="step reveal">
+        <div>
+          <div class="step-num">02</div>
+          <h3>Подключи поставщика</h3>
+          <div class="copybar"><span><em>Раздел</em>Интеграции</span><button class="copy" data-copy="Интеграции">Скопировать</button></div>
+          <ol>
+            <li>Открой карточку нужного поставщика.</li>
+            <li>Вставь API-ключ. Покажется баланс.</li>
+          </ol>
+          <div class="callout"><svg class="icon"><use href="#i-info"/></svg><p>Баланс лежит у поставщика, пополняешь его сам. Если денег не хватит, выдача не пройдёт, а лот на FunPay может сам уйти с витрины и вернуться после пополнения.</p></div>
+        </div>
+        <div class="step-ui">
+          <div class="ui-panel">
+            <div class="ui-title">FazerCards<span class="chip">Поставщик</span></div>
+            <div class="field">API-ключ<div class="input"><span class="typing">••••••••••••••••</span></div></div>
+            <div class="ui-row"><div><b>Баланс</b><small>показывается после подключения ключа</small></div><span class="chip ok">Ок</span></div>
+          </div>
+          <p class="ui-cap">Схема интерфейса</p>
+        </div>
+      </div>
+
+      <div class="step reveal">
+        <div>
+          <div class="step-num">03</div>
+          <h3>Подключи лот к поставщику</h3>
+          <div class="copybar"><span><em>Кнопка</em>Подключить лот к поставщику</span><button class="copy" data-copy="Подключить лот к поставщику">Скопировать</button></div>
+          <ol>
+            <li>Найди кнопку в блоке «Лоты с автовыдачей».</li>
+            <li>Шаг 1 из 2: выбери свой лот на FunPay. Шаг 2 из 2: выбери, что покупать у поставщика. Номиналы подключаются по отдельности.</li>
+            <li>Внизу страницы проверь поле «Сообщение покупателю»: с этим текстом код уйдёт в чат заказа.</li>
+            <li>Если на лоте включена родная автовыдача FunPay, появится красная метка «FunPay выдаст старые коды». Нажми на неё и выбери «Выключить автовыдачу FunPay».</li>
+          </ol>
+          <div class="callout warn"><svg class="icon"><use href="#i-alert"/></svg><p>Без последнего пункта старый код может выдаться вместо нового.</p></div>
+        </div>
+        <div class="step-ui">
+          <div class="ui-panel">
+            <div class="ui-title">Лоты с автовыдачей</div>
+            <div class="ui-row"><div><b>Steam 500 ₽</b><small>FunPay → FazerCards</small></div><span class="chip red">FunPay выдаст старые коды</span></div>
+            <div class="ui-menu"><div>Открыть лот</div><div class="on">Выключить автовыдачу FunPay</div></div>
+          </div>
+          <p class="ui-cap">Схема интерфейса</p>
+        </div>
+      </div>
+
+      <div class="step reveal">
+        <div>
+          <div class="step-num">04</div>
+          <h3>Проверь на тестовом заказе</h3>
+          <ul>
+            <li>Возьми лот с минимальной ценой и покупателя, которого ты контролируешь (знакомый).</li>
+            <li>Не покупай со своего второго аккаунта: смотри правила площадки на дату проверки.</li>
+            <li>Код реально покупается у поставщика, поэтому тестируй на самом дешёвом товаре.</li>
+          </ul>
+          <div class="callout ok"><svg class="icon"><use href="#i-check"/></svg><p>После оплаты в блоке «Выдачи» появится строка со статусом «Выдано», а код придёт в чат заказа.</p></div>
+        </div>
+        <div class="step-ui">
+          <div class="ui-panel">
+            <div class="ui-title">Выдачи</div>
+            <div class="ui-row"><div><b>Заказ, FunPay</b><small>Steam 500 ₽</small></div><span class="chip ok">Выдано</span></div>
+            <div class="ui-row"><div><b>Чат заказа</b><small>код отправлен покупателю</small></div><span class="chip ok">Ок</span></div>
+          </div>
+          <p class="ui-cap">Схема интерфейса</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="fail">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">Разбор сбоев</span>
+      <h2>Если выдача не прошла</h2>
+      <p class="sec-sub">Причина всегда видна в журнале.</p>
+    </div>
+    <div class="grid g2 reveal">
+      <div class="card info"><div class="ico"><svg class="icon"><use href="#i-search"/></svg></div><h4>Найди причину</h4><p>Блок «Выдачи», фильтр «Требуют внимания». Там: мало денег у поставщика, нет данных покупателя или товар закончился.</p></div>
+      <div class="card info"><div class="ico"><svg class="icon"><use href="#i-redo"/></svg></div><h4>Исправь и повтори</h4><p>Пополни баланс или впиши данные и нажми «Повторить».</p></div>
+      <div class="card info"><div class="ico"><svg class="icon"><use href="#i-hand"/></svg></div><h4>Выдать вручную</h4><p>Заказы, три точки, «Выдать через поставщика».</p>
+        <div class="copybar" style="margin:14px 0 0"><span>Заказы → ⋯ → Выдать через поставщика</span><button class="copy" data-copy="Заказы → три точки → Выдать через поставщика">Скопировать</button></div></div>
+      <div class="card info"><div class="ico"><svg class="icon"><use href="#i-phone"/></svg></div><h4>Telegram в телефон</h4><p>В боте нажми Start и «Привязать». Новые заказы, споры и важные ошибки придут в телефон. Тарифы «Про» и «Бизнес».</p>
+        <div class="copybar" style="margin:14px 0 0"><span>Настройки → Telegram → Привязать через бота</span><button class="copy" data-copy="Настройки → Telegram → Привязать через бота">Скопировать</button></div></div>
+    </div>
+
+    <ul class="facts reveal">
+      <li><svg class="icon"><use href="#i-info"/></svg>На FunPay код приходит в чат. Мгновенная страница с кодом есть только на GGSell и Plati.</li>
+      <li><svg class="icon"><use href="#i-info"/></svg>Ставки комиссий и правила площадок определяет площадка, сверяй их на дату проверки.</li>
+      <li><svg class="icon"><use href="#i-info"/></svg>После триала без оплаты остаётся бесплатный режим, автовыдача работает на тарифе.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="fit" class="tint">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">Выбор инструмента</span>
+      <h2>Что подходит тебе</h2>
+      <p class="sec-sub">Зависит от того, откуда у тебя коды.</p>
+    </div>
+    <div class="fit reveal">
+      <div class="fit-row hot"><div><span class="when">Покупаешь код у поставщика под заказ</span><b>Varga</b></div><div class="note">Автозакупка и выдача в чат, сервер не нужен.</div></div>
+      <div class="fit-row"><div><span class="when">Свои коды в файле и свой сервер</span><b>Бесплатный бот вроде Cardinal</b></div><div class="note">Его развивают до сих пор.</div></div>
+      <div class="fit-row"><div><span class="when">Свои коды без своего сервера</span><b>«Мой склад» в Varga</b></div><div class="note">Бета.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="links">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">Всё в одном месте</span>
+      <h2>Все ссылки</h2>
+      <p class="sec-sub">Что упоминается в видео и на этой странице.</p>
+    </div>
+    <div class="grid g2 reveal">
+      <a class="card link-card" href="https://vargaai.ru/?src=youtube_autovydacha" target="_blank" rel="noopener"><span class="logo-img" data-letter="V"><img class="logo" src="https://vargaai.ru/img/va-logo.png" alt="" loading="lazy"></span><div><h4>Varga AI</h4><p>Сервис, на котором показан гайд. 7 дней бесплатно</p></div><svg class="icon arrow"><use href="#i-arrow"/></svg></a>
+      <a class="card link-card" href="https://www.youtube.com/@shellboyxx" target="_blank" rel="noopener"><span class="logo-img" data-letter="Y"><img class="logo" src="https://www.google.com/s2/favicons?domain=youtube.com&sz=128" alt="" loading="lazy"></span><div><h4>YouTube-канал</h4><p>Видео и новые гайды</p></div><svg class="icon arrow"><use href="#i-arrow"/></svg></a>
+      <a class="card link-card" href="https://funpay.com/" target="_blank" rel="noopener"><span class="logo-img" data-letter="F"><img class="logo" src="https://www.google.com/s2/favicons?domain=funpay.com&sz=128" alt="" loading="lazy"></span><div><h4>FunPay</h4><p>Площадка, на которой настраиваем</p></div><svg class="icon arrow"><use href="#i-arrow"/></svg></a>
+      <a class="card link-card" href="https://reseller.fazercards.com/ru" target="_blank" rel="noopener"><span class="logo-img" data-letter="F"><img class="logo" src="https://www.google.com/s2/favicons?domain=fazercards.com&sz=128" alt="" loading="lazy"></span><div><h4>FazerCards</h4><p>Поставщик, проверен в продукте</p></div><svg class="icon arrow"><use href="#i-arrow"/></svg></a>
+      <a class="card link-card" href="https://github.com/sidor0912/FunPayCardinal" target="_blank" rel="noopener"><span class="logo-img" data-letter="C"><img class="logo" src="https://www.google.com/s2/favicons?domain=github.com&sz=128" alt="" loading="lazy"></span><div><h4>Cardinal</h4><p>Бесплатный бот для своих кодов на своём сервере</p></div><svg class="icon arrow"><use href="#i-arrow"/></svg></a>
+      <a class="card link-card" href="https://t.me/ova_xd" target="_blank" rel="noopener"><span class="logo-img" data-letter="T"><img class="logo" src="https://www.google.com/s2/favicons?domain=telegram.org&sz=128" alt="" loading="lazy"></span><div><h4>Вопросы в Telegram</h4><p>Отвечает основатель Varga</p></div><svg class="icon arrow"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section id="trial" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta reveal">
+      <h2>Попробуй автовыдачу сам</h2>
+      <p>Забери 7 дней бесплатно, карта не нужна. Отсчёт начнётся, когда подключишь первую площадку.</p>
+      <a class="btn white" href="https://vargaai.ru/?src=youtube_autovydacha" target="_blank" rel="noopener">Начать бесплатно</a>
+      
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>shellboy hub</span>
+    <span><a href="https://www.youtube.com/@shellboyx" target="_blank" rel="noopener">YouTube</a></span>
+  </div>
+</footer>
+
+<script src="../assets/js/copy.js"></script>
+<script src="../assets/js/logos.js"></script>
+<script src="../assets/js/nav.js"></script>
+<script src="../assets/js/reveal.js"></script>
+<script src="../assets/js/anim.js"></script>
+</body>
+</html>
